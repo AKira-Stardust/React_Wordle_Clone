@@ -10,7 +10,6 @@ function App() {
       const res = await fetch('https://aks-json-db.herokuapp.com/solutions') //pushed db to heroku server
       const json = await res.json()
      
-
       if (res.ok){
         const randomSolution = json[Math.floor(Math.random()*json.length)]
         setSolution(randomSolution.word)
