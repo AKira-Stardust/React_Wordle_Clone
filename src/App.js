@@ -2,21 +2,42 @@ import { useState, useEffect } from "react"
 import Wordle from "./components/Wordle"
 
 function App() {
+
+  const solutions= [
+      {"id": 1, "word": "ninja"},
+      {"id": 2, "word": "spade"},
+      {"id": 3, "word": "pools"},
+      {"id": 4, "word": "drive"},
+      {"id": 5, "word": "relax"},
+      {"id": 6, "word": "times"},
+      {"id": 7, "word": "train"},
+      {"id": 8, "word": "cores"},
+      {"id": 9, "word": "pours"},
+      {"id": 10, "word": "blame"},
+      {"id": 11, "word": "banks"},
+      {"id": 12, "word": "phone"},
+      {"id": 13, "word": "bling"},
+      {"id": 14, "word": "coins"},
+      {"id": 15, "word": "hello"}
+    ]
   const [ solution, setSolution ] = useState('')
   
   useEffect( () => {
-    const fetchSolutions = async () => {
-      // const res = await fetch('http://localhost:3001/solutions') 
-      const res = await fetch('https://aks-json-db.herokuapp.com/solutions') //pushed db to heroku server
-      const json = await res.json()
+    // const fetchSolutions = async () => {
+    //   // const res = await fetch('http://localhost:3001/solutions') 
+    //   const res = await fetch('https://aks-json-db.herokuapp.com/solutions') //pushed db to heroku server
+    //   const json = await res.json()
      
-      if (res.ok){
-        const randomSolution = json[Math.floor(Math.random()*json.length)]
-        setSolution(randomSolution.word)
-      }
-    }
+    //   if (res.ok){
+    //     const randomSolution = json[Math.floor(Math.random()*json.length)]
+    //     setSolution(randomSolution.word)
+    //   }
+    // }
 
-    fetchSolutions()      
+    // fetchSolutions()      
+
+    const randomSolution = solutions[Math.floor(Math.random()*solutions.length)]
+    setSolution(randomSolution.word)
   }, [])
 
   return (
